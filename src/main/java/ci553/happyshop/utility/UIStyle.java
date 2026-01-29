@@ -29,6 +29,8 @@ package ci553.happyshop.utility;
 
 public final class UIStyle {
 
+    public static String textFieldStyle;
+
     //private constructor prevents instantiation
     private UIStyle() {
         throw new UnsupportedOperationException("UIStyle is a utility class");
@@ -141,5 +143,22 @@ public final class UIStyle {
             "-fx-font-weight: normal; -fx-text-fill: green;";
 
     public static final String tooltipStyle = "-fx-background-color: lightyellow; -fx-text-fill: red;";
+
+    public static String rootStyleForRole(String role) { //alows for syncing of UI with roles and associated clients
+    if (role == null) return rootStyleGray;
+
+    switch (role.toLowerCase()) {
+        case "customer":
+            return rootStyle;         
+        case "picker":
+            return rootStyleBlue;      
+        case "warehouse":
+            return rootStyleWarehouse; 
+        case "admin":
+            return rootStyleGray;      
+        default:
+            return rootStyleGray;
+    }
+}
 
 }
